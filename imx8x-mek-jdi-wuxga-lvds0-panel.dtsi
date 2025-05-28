@@ -1,0 +1,78 @@
+// SPDX-License-Identifier: GPL-2.0+
+
+/*
+ * Copyright 2020 NXP
+ */
+
+
+/delete-node/ &it6263_0_in;
+/delete-node/ &it6263_1_in;
+
+//kernel version 6.1
+/ {
+	lvds0_panel {
+    	compatible = "auo,b101aw03";
+    	backlight = <&lvds_backlight0>;
+    	port {
+        	panel_lvds0_in: endpoint {
+            	remote-endpoint = <&lvds0_out>;
+        	};
+    	};
+	};
+};
+
+
+&ldb1 {
+ 
+	lvds-channel@0 {
+    	fsl,data-mapping = "spwg";
+    	fsl,data-width = <24>;
+ 
+    	port@1 {
+        	reg = <1>;
+ 
+        	lvds0_out: endpoint {
+            	remote-endpoint = <&panel_lvds0_in>;
+        	};
+    	};
+	};
+};
+
+
+
+
+
+/ {
+//	lvds1_panel {
+    	//7 inch
+ //   	compatible = "auo,b101aw03";
+ //   	backlight = <&lvds_backlight1>;
+
+//    	port {
+ //       	panel_lvds1_in: endpoint {
+ //           	remote-endpoint = <&lvds1_out>;
+//	};
+ //	    	};
+//	};
+
+//};
+
+
+
+
+
+//&ldb2 {
+
+//	lvds-channel@0 {
+ //   	fsl,data-mapping = "spwg";
+  //  	fsl,data-width = <24>;
+
+  //  	port@1 {
+   //     	reg = <1>;
+//
+       // 	lvds1_out: endpoint {
+      //      	remote-endpoint = <&panel_lvds1_in>;
+     //   	};
+   // 	};
+//	};
+//};
